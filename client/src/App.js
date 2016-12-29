@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './Header'
+import UserList from './UserList'
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+class usersApp extends React.Component{
+  constructor (props){
+    super(props)
+    this.state = { users: []}
+  }
+
+  componentWillMount(){
+    fetch ("http://localhost:8080/users")
+      .then((response) => {
+        return response.json()
+      })
+      .then ((users) => {
+        this.setState({users: users})
+      })
+  }
+
+  render(){
+    if(this.state.users.length > 0){
+      return(
+        <div>
+          <Header />
+          <div className="main">
+            <div className="box-search">
+              <input type="text" placeholder="Search"/>
+              <button>X</button>
+            </div>
+            <UserList list={this.state.users} />
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      )
+    } else {
+      return <p className="text-center">Loading</p>
+    }
   }
 }
 
-export default App;
+export default usersApp
+
+
+
