@@ -11,8 +11,11 @@ class userList extends React.Component{
 					this.props.list.map((user) =>{
 						return <UserRow name = {user.name}
 										username = {user.username}
+										email = {user.email}
+										address = {user.address} 
 										phone = {user.phone}
-										email = {user.email} />
+										website = {user.website}
+										company = {user.company} />
 					})
 				}
 			</div>
