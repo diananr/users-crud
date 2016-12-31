@@ -20,10 +20,17 @@
   margin-top: 2em;
 }
 .box-search input{
-  width: 90%;
+  width: 100%;
   height: 50px;
 }
-.box-search button{
-  width: 10%;
+
+.add{
+  width: 50px;
   height: 50px;
+  position: fixed;
+  z-index: 1;
+  background: #0066C4;
+  border-radius: 50%;
+  bottom: 10px;
+  right: 10px;
 }

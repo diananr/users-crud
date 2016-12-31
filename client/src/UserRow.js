@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Modal , Button } from 'react-bootstrap';
 import './App.css';
 
-const userRow = React.createClass({
+var userRow = React.createClass({
+
   getInitialState() {
     return { showModal: false };
   },
@@ -17,17 +18,16 @@ const userRow = React.createClass({
 
   render() {
     return (
-      <div>
-
-        <div className="box-user" onClick={this.open}>
+      <div className="box-user">
+        <div onClick={this.open}>
         	<h4>{this.props.name}</h4>
         	<p>{this.props.username}</p>
         	<p>{this.props.phone}</p>
         	<p>{this.props.email}</p>
         </div>
-
         <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
+          <Modal.Header>
+          	<Button onClick={this.close}>Back</Button>
           </Modal.Header>
           <Modal.Body>
             <h4>{this.props.name}</h4>
@@ -37,6 +37,7 @@ const userRow = React.createClass({
         	<p>{this.props.website}</p>
           </Modal.Body>
           <Modal.Footer>
+            <Button onClick={this.close}>Delete</Button>
             <Button onClick={this.close}>Edit</Button>
           </Modal.Footer>
         </Modal>
