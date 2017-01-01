@@ -52,3 +52,6 @@
   font-size: 20px;
   border:none;
 }
+.add:focus{
+  outline: none;
+}
