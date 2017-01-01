@@ -27,19 +27,28 @@ var userRow = React.createClass({
         </div>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header>
-          	<Button onClick={this.close}>Back</Button>
+          	<Button className="btn-back" onClick={this.close}>Back</Button>
+          	<Button className="btn-delete" onClick={this.close}>Delete</Button>
           </Modal.Header>
           <Modal.Body>
             <h4>{this.props.name}</h4>
-            <p>{this.props.username}</p>
-        	<p>{this.props.phone}</p>
-        	<p>{this.props.email}</p>
-        	<p>{this.props.website}</p>
+            <div>
+            	<label>Username: </label>
+            	<span>{this.props.username}</span>
+            </div>
+            <div>
+            	<label>Phone: </label>
+        		<span>{this.props.phone}</span>
+            </div>
+        	<div>
+        		<label>Email: </label>
+        		<span>{this.props.email}</span>
+        	</div>
+        	<div>
+        		<label>Website: </label>
+        		<span>{this.props.website}</span>
+        	</div>
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Delete</Button>
-            <Button onClick={this.close}>Edit</Button>
-          </Modal.Footer>
         </Modal>
       </div>
     );

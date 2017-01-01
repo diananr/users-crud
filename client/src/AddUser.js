@@ -5,10 +5,10 @@ import './App.css';
 
 
 class AddUser extends React.Component{
-  constructor (props){
-    super(props);
-    this.state = { showModal: false };
-  }
+  	constructor (props){
+    	super(props);
+    	this.state = { showModal: false };
+  	}
 
  	close() {
  		this.setState({ showModal: false });
@@ -16,12 +16,12 @@ class AddUser extends React.Component{
 
  	open() {
  	  this.setState({ showModal: true });
-  }
+  	}
 
 	render (){
 		return(
 			<div className="add-user">
- 	      	<button className="add" onClick={this.open.bind(this)}></button>
+ 	      	<button className="add" onClick={this.open.bind(this)}>+</button>
  	        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
  	          <Modal.Body>
 				<div className="text-center">
@@ -31,65 +31,45 @@ class AddUser extends React.Component{
 							<input type="text" id="name" ref="name" className="form-control name" placeholder="Enter the name"/>
 						</div>
 						<div className="form-group" id="cont">
-							<input type="text" ref="phone" className="form-control" placeholder="Enter the contact number" />
+							<input type="text" ref="username" className="form-control" placeholder="Enter the username" />
 						</div>
 						<div className="form-group" id="cont">
-							<input type="text" ref="email" className="form-control" placeholder="Enter the E-mail address" />
+							<input type="text" ref="phone" className="form-control" placeholder="Enter the phone" />
 						</div>
 						<div className="form-group" id="cont">
-							<input type="text" ref="photo" className="form-control" placeholder="Enter the URL for contact image" />
+							<input type="text" ref="email" className="form-control" placeholder="Enter the email" />
 						</div>
-						<button type="submit" className="btn btn-primary">Save</button>
+						<div className="form-group" id="cont">
+							<input type="text" ref="website" className="form-control" placeholder="Enter the website" />
+						</div>
+						<button type="submit" className="btn btn-default">Save</button>
 					</form>
 				</div>
 			  </Modal.Body>
  	        </Modal>
  	       </div>
-
 		);
 	}
 
-  handleSubmit (e) {
-    e.preventDefault();
+  	handleSubmit (e) {
+    	e.preventDefault();
 
 		var newuser = {
 			name:this.refs.name.value.trim(),
-			phone:this.refs.phone.value.trim(),
+			username:this.refs.username.value.trim(),
 			email:this.refs.email.value.trim(),
-			photo: this.refs.photo.value.trim()
+			phone: this.refs.phone.value.trim(),
+			website: this.refs.website.value.trim()
 		}
 
 		if(newuser.name==''){
 			alert('please enter name');
-      return;
-		}
+      		return;
+      	}
 
-    this.props.addUser(newuser);
-    this.close();
-  }
-
-	/*handleSubmit: function(e){
-		e.preventDefault();
-
-		var newuser = {
-			name:this.refs.name.value.trim(),
-			phone:this.refs.phone.value.trim(),
-			email:this.refs.email.value.trim(),
-			photo: this.refs.photo.value.trim()
-		}
-
-		if(newuser.name==''){
-			alert('please enter name');
-		}
-
-	    console.log(newuser);
-
- 	    const array = this.props.list;
- 	    const newArray = update(array, {$push: [newuser]});
-
- 	    console.log(array);
- 	    console.log(newArray);
-	}*/
+	    this.props.addUser(newuser);
+	    this.close();
+  	}
 }
 
 export default AddUser

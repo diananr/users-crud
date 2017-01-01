@@ -56,7 +56,6 @@ class usersApp extends React.Component{
     }
   }
 
-
   updateUsers(user) {
     let users = this.state.users;
     users.push(user);

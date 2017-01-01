@@ -1,36 +1,54 @@
 .header{
   background-color: #FF9500;
-  height: 100px;
-  margin: 0;
+  height: 60px;
   width: 100vw;
 }
-.header h1{
+.header h2{
   margin: 0;
+  padding-top: 10px;
   color: white;
 }
 .main{
   width: 90%;
   margin:5%;
 }
-.box-search, .box-user{
+.box-search{
   width: 100%;
+  border-radius: 10px;
+  padding:0 10px;
   border:1px solid #bbb;
+
+}
+.box-search input{
+  height: 40px;
+  width: 100%;
+  border: none;
+}
+.box-search input:focus{
+  outline: none;
 }
 .box-user{
   margin-top: 2em;
+  padding-left: 10px;
 }
-.box-search input{
-  width: 100%;
-  height: 50px;
+.box-user p , .box-user span{
+  margin:2px 0;
+  color:gray;
 }
-
+.btn-delete{
+  float: right;
+}
 .add{
   width: 50px;
   height: 50px;
   position: fixed;
   z-index: 1;
-  background: #0066C4;
+  background-color:lightblue;
   border-radius: 50%;
   bottom: 10px;
   right: 10px;
+  color:white;
+  font-weight: bold;
+  font-size: 20px;
+  border:none;
 }
