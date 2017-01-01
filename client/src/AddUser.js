@@ -62,13 +62,16 @@ class AddUser extends React.Component{
 			website: this.refs.website.value.trim()
 		}
 
-		if(newuser.name==''){
-			alert('please enter name');
+		if(newuser.name=='' || newuser.username=='' ||
+		   newuser.email== '' || newuser.phone=='' ||
+		   newuser.website==''){
+			alert('please complete the form');
       		return;
       	}
-
-	    this.props.addUser(newuser);
-	    this.close();
+      	else{
+      		this.props.addUser(newuser);
+	    	this.close();
+      	}
   	}
 }
 
