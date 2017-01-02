@@ -6,24 +6,24 @@ import './App.css';
 
 class AddUser extends React.Component{
 	constructor (props){
-  	super(props);
-  	this.state = { showModal: false };
+		super(props);
+		this.state = { showModal: false };
 	}
 
- 	close() {
- 		this.setState({ showModal: false });
- 	}
+	close() {
+		this.setState({ showModal: false });
+	}
 
- 	open() {
- 	  this.setState({ showModal: true });
-  }
+	open() {
+	  this.setState({ showModal: true });
+	}
 
 	render (){
 		return(
 			<div className="add-user">
-      	<button className="add" onClick={this.open.bind(this)}>+</button>
-      	<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
-        	<Modal.Body>
+		  	<button className="add" onClick={this.open.bind(this)}>+</button>
+		  	<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+		    	<Modal.Body>
 						<div>
 							<h3 className="text-center">Add User</h3>
 							<form onSubmit={this.handleSubmit.bind(this)} id="editForm"className="center-block">
@@ -60,14 +60,14 @@ class AddUser extends React.Component{
 								<button type="submit" className="btn btn-default">Save</button>
 							</form>
 						</div>
-	  			</Modal.Body>
-      	</Modal>
- 	  	</div>
+					</Modal.Body>
+		  	</Modal>
+		  </div>
 		);
 	}
 
- 	handleSubmit (e) {
-    e.preventDefault();
+	handleSubmit (e) {
+		e.preventDefault();
 
 		var newuser = {
 			name:this.refs.name.value.trim(),
@@ -89,13 +89,13 @@ class AddUser extends React.Component{
 		  newuser.email== '' || newuser.phone=='' ||
 		  newuser.website==''){
 				alert('please complete the form');
-      	return;
-    }
-    else{
-  		this.props.addUser(newuser);
-  		this.close();
-    }
-  }
+		  	return;
+		}
+		else{
+			this.props.addUser(newuser);
+			this.close();
+		}
+	}
 }
 
 export default AddUser
