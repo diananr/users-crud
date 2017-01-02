@@ -9,14 +9,15 @@ class userList extends React.Component{
 			<div className="box-list">
 				{
 					this.props.list.map((user) =>{
-						return <UserRow
+						return  <UserRow
                     				key = {user.email}
                     					name = {user.name}
 										username = {user.username}
 										email = {user.email}
+										address={user.address}
 										phone = {user.phone}
-										website = {user.website}
-										company = {user.company} />
+										company = {user.company}
+										website = {user.website} />
 					})
 				}
 			</div>
