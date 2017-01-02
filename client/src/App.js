@@ -5,7 +5,7 @@ import AddUser from './AddUser'
 import './App.css';
 
 
-class usersApp extends React.Component{
+class UsersApp extends React.Component{
     constructor (props){
         super(props)
         this.state = { users: [], filter: ""}
@@ -22,7 +22,7 @@ class usersApp extends React.Component{
     }
 
     render(){
-        var updateUsers = this.updateUsers.bind(this);
+        let updateUsers = this.updateUsers.bind(this);
 
         let users = [];
 
@@ -35,7 +35,7 @@ class usersApp extends React.Component{
         else
         users = this.state.users;
         
-        var loadString = "Loading.."
+        let loadString = "Loading.."
         if(this.state.users.length > 0){
             return(
                 <div>
@@ -65,4 +65,4 @@ class usersApp extends React.Component{
     }
 }
 
-export default usersApp
+export default UsersApp

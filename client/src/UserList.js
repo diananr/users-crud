@@ -3,7 +3,7 @@ import UserRow from './UserRow';
 import AddUser from './AddUser';
 import './App.css';
 
-class userList extends React.Component{
+class UserList extends React.Component{
 	render (){
 		return (
 			<div className="box-list">
@@ -25,4 +25,4 @@ class userList extends React.Component{
 	}
 }
 
-export default userList
+export default UserList

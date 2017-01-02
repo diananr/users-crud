@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { Modal , Button } from 'react-bootstrap';
 import './App.css';
 
-var userRow = React.createClass({
+class UserRow extends React.Component{
 
-	getInitialState() {
-    	return { showModal: false };
-  	},
+	constructor(props){
+		super(props);
+		this.state = { showModal: false };
+	}
 
   	close() {
     	this.setState({ showModal: false });
-  	},
+  	}
 
   	open() {
     	this.setState({ showModal: true });
-  	},
+  	}
 
   	render() {
 	    return (
@@ -24,12 +25,12 @@ var userRow = React.createClass({
 	        	<p>{this.props.username}</p>
 	        	<p>{this.props.phone}</p>
 	        	<p>{this.props.email}</p>
-	        	<button className="btn btn-default" onClick={this.open}>View details</button>
-	        	<button className="btn btn-delete" onClick={this.delete}>Delete</button>
+	        	<button className="btn btn-default" onClick={this.open.bind(this)}>View details</button>
+	        	<button className="btn btn-delete" onClick={this.delete.bind(this)}>Delete</button>
 	        </div>
-	        <Modal show={this.state.showModal} onHide={this.close}>
+	        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
 	          <Modal.Header>
-	          	<Button className="btn-back" onClick={this.close}>Back</Button>
+	          	<Button className="btn-back" onClick={this.close.bind(this)}>Back</Button>
 	          </Modal.Header>
 	          <Modal.Body>
 	            <h4>{this.props.name}</h4>
@@ -63,13 +64,13 @@ var userRow = React.createClass({
 	        </Modal>
 	      </div>
 	    );
-  	},
+  	}
 
   	delete(e){
   		e.preventDefault();
   		var padreBox = e.target.parentElement.parentElement;
   		padreBox.remove();
   	}
-});
+}
 
-export default userRow
+export default UserRow
