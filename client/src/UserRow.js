@@ -19,16 +19,17 @@ var userRow = React.createClass({
   	render() {
 	    return (
 	      <div className="box-user">
-	        <div onClick={this.open}>
+	        <div>
 	        	<h4>{this.props.name}</h4>
 	        	<p>{this.props.username}</p>
 	        	<p>{this.props.phone}</p>
 	        	<p>{this.props.email}</p>
+	        	<button className="btn btn-default" onClick={this.open}>View details</button>
+	        	<button className="btn btn-delete" onClick={this.delete}>Delete</button>
 	        </div>
 	        <Modal show={this.state.showModal} onHide={this.close}>
 	          <Modal.Header>
 	          	<Button className="btn-back" onClick={this.close}>Back</Button>
-	          	<Button className="btn-delete" onClick={this.close}>Delete</Button>
 	          </Modal.Header>
 	          <Modal.Body>
 	            <h4>{this.props.name}</h4>
@@ -62,6 +63,12 @@ var userRow = React.createClass({
 	        </Modal>
 	      </div>
 	    );
+  	},
+
+  	delete(e){
+  		e.preventDefault();
+  		var padreBox = e.target.parentElement.parentElement;
+  		padreBox.remove();
   	}
 });
 

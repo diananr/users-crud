@@ -45,7 +45,7 @@ class usersApp extends React.Component{
                       <input type="text" placeholder="Search" value={this.state.filter} onChange={this._onChange.bind(this)}/>
                     </div>
                     <UserList list={users}/>
-                    <AddUser list={this.state.users} addUser={ updateUsers }/>
+                    <AddUser addUser={ updateUsers }/>
                   </div>
                 </div>
             )
@@ -63,13 +63,6 @@ class usersApp extends React.Component{
     _onChange(e) {
         this.setState({filter: e.target.value});
     }
-
-    deleteUser(name) {
-        let users = this.state.users;
-        users.indexOf(name);
-        this.setState({users: users});
-    }
-
 }
 
 export default usersApp
