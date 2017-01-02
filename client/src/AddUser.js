@@ -4,26 +4,26 @@ import { Modal , Button } from 'react-bootstrap';
 import './App.css';
 
 
-	class AddUser extends React.Component{
-	  	constructor (props){
-	    	super(props);
-	    	this.state = { showModal: false };
-	  	}
+class AddUser extends React.Component{
+	constructor (props){
+  	super(props);
+  	this.state = { showModal: false };
+	}
 
-	 	close() {
-	 		this.setState({ showModal: false });
-	 	}
+ 	close() {
+ 		this.setState({ showModal: false });
+ 	}
 
-	 	open() {
-	 	  this.setState({ showModal: true });
-	  	}
+ 	open() {
+ 	  this.setState({ showModal: true });
+  }
 
-		render (){
-			return(
-				<div className="add-user">
-		 	      	<button className="add" onClick={this.open.bind(this)}>+</button>
-		 	        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
-		 	          <Modal.Body>
+	render (){
+		return(
+			<div className="add-user">
+      	<button className="add" onClick={this.open.bind(this)}>+</button>
+      	<Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+        	<Modal.Body>
 						<div>
 							<h3 className="text-center">Add User</h3>
 							<form onSubmit={this.handleSubmit.bind(this)} id="editForm"className="center-block">
@@ -60,42 +60,42 @@ import './App.css';
 								<button type="submit" className="btn btn-default">Save</button>
 							</form>
 						</div>
-					  </Modal.Body>
-		 	        </Modal>
-	 	       	</div>
-			);
+	  			</Modal.Body>
+      	</Modal>
+ 	  	</div>
+		);
+	}
+
+ 	handleSubmit (e) {
+    e.preventDefault();
+
+		var newuser = {
+			name:this.refs.name.value.trim(),
+			username:this.refs.username.value.trim(),
+			email:this.refs.email.value.trim(),
+			address : {
+				street: this.refs.street.value.trim(),
+				suite: this.refs.suite.value.trim(),
+				city: this.refs.suite.value.trim()
+			},
+			phone: this.refs.phone.value.trim(),
+			company :{
+				name : this.refs.company.value.trim()
+			},
+			website: this.refs.website.value.trim()
 		}
 
-	  	handleSubmit (e) {
-	    	e.preventDefault();
-
-			var newuser = {
-				name:this.refs.name.value.trim(),
-				username:this.refs.username.value.trim(),
-				email:this.refs.email.value.trim(),
-				address : {
-					street: this.refs.street.value.trim(),
-					suite: this.refs.suite.value.trim(),
-					city: this.refs.suite.value.trim()
-				},
-				phone: this.refs.phone.value.trim(),
-				company :{
-					name : this.refs.company.value.trim()
-				},
-				website: this.refs.website.value.trim()
-			}
-
-			if(newuser.name=='' || newuser.username=='' ||
-			   newuser.email== '' || newuser.phone=='' ||
-			   newuser.website==''){
+		if(newuser.name=='' || newuser.username=='' ||
+		  newuser.email== '' || newuser.phone=='' ||
+		  newuser.website==''){
 				alert('please complete the form');
-	      		return;
-	      	}
-	      	else{
-	      		this.props.addUser(newuser);
-		    	this.close();
-	      	}
-	  	}
-	}
+      	return;
+    }
+    else{
+  		this.props.addUser(newuser);
+  		this.close();
+    }
+  }
+}
 
 export default AddUser
